@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class MyStack implements StackInterface {
     
-    private ArrayList <String> aStackWagon;
+    private final ArrayList <String> aStackWagon;
     
     public MyStack () {
         
