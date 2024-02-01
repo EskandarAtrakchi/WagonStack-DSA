@@ -94,7 +94,7 @@ public class MyStack implements StackInterface {
             if ( i > 4) {
                 
                 JOptionPane.showMessageDialog(null , "(detach extra wagons from the train");
-                
+                //here is the change 
             }
         }
         
