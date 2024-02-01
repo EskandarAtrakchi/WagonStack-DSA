@@ -21,36 +21,23 @@ public class MyStack implements StackInterface {
     @Override
     public void pushStack (Object newItem) {
         
-        //String addWagon = StackGUI.trainProductTF.getText();
-        aStackWagon.add(0, (String) newItem);
-        JOptionPane.showMessageDialog(null , "Added successfully!");
-        
-    }
-    
-    @Override
-    public boolean emptyStack() {
-        
-        boolean check = false ;
-        
-        if (aStackWagon.isEmpty() == true) {
-            
-            StackGUI.displayTA.setText(null);
-            StackGUI.displayTA.append("The stack is empty");
-            check = true;
-            
+        StackGUI.displayTA.setText(null);
+        if ( aStackWagon.size() > 4) {
+
+            JOptionPane.showMessageDialog(null , "detach extra wagons from the train");
+
         } else {
-            
-            StackGUI.displayTA.setText(null);
-            StackGUI.displayTA.append("The stack is not empty!");
-            check = false;
-            
+
+            //String addWagon = StackGUI.trainProductTF.getText();
+            aStackWagon.add(0, (String) newItem);
+            JOptionPane.showMessageDialog(null , "Added successfully!");
+
         }
         
-        return check;
     }
     
     @Override
-    public Object pop () {
+    public Object emptyStack() {
         
         if (aStackWagon.isEmpty() == true) {
             
@@ -62,7 +49,7 @@ public class MyStack implements StackInterface {
             
             StackGUI.displayTA.setText(null);
             StackGUI.displayTA.append("The stack removed successfully!");
-            return aStackWagon.remove(0);
+            return aStackWagon.remove(aStackWagon.size() - 1);
             
         }
     }
@@ -91,49 +78,42 @@ public class MyStack implements StackInterface {
         
         StackGUI.displayTA.setText(null);
         StackGUI.displayTA.append("The total stacks are: " + aStackWagon.size());
-        return aStackWagon.size();
+        
+        return JOptionPane.showConfirmDialog(null , "The number of Wagons are :"  + aStackWagon.size());
         
     }
     
     @Override
-    public String displayStack () {
-        //display stack from top zero index to the bottom
-        String str = "";
+    public void displayStack () {
+        
+        StackGUI.displayTA.setText(null);
+        for (int i = 0; i < aStackWagon.size(); i ++ ) {
+            
+            StackGUI.displayTA.append("Index number " + i + " is " + (String) aStackWagon.get(i) + "\n");
+            
+            if ( i > 4) {
+                
+                JOptionPane.showMessageDialog(null , "(detach extra wagons from the train");
+                
+            }
+        }
+        
+    }
+    
+    @Override
+    public void removeWagons () {
+        
         if (aStackWagon.isEmpty() == true) {
             
-            str = str.concat("Empty stack, nothing to display!");
             StackGUI.displayTA.setText(null);
             StackGUI.displayTA.append("The stack is empty!");
             
         } else {
             
-            for (int i = 0 ; i < aStackWagon.size() ; i ++) {
-                
-                str = str.concat(aStackWagon.get(i));
-                
-                Iterator it;
-                it = aStackWagon.iterator();
-                
-                while (it.hasNext () ) {//hasNext returns true or false 
-                    
-                    StackGUI.displayTA.setText(null);
-                    StackGUI.displayTA.append((String) it.next());
+            aStackWagon.clear();
+            JOptionPane.showMessageDialog(null, "All wagons removed successfully.");
             
-                    str = str.concat( (String) it.next());//next returns the 
-                    str = str.concat(" : ") ;
-                    
-                }
-            }
         }
-        //return the str
-        return str;
-        
-    }
-    
-    public void checkStack () {
-        
-        System.out.println("Index number one is " + (String) aStackWagon.get(1));
-        
     }
     
 }

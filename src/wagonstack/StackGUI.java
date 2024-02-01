@@ -39,6 +39,7 @@ public class StackGUI extends javax.swing.JFrame {
         exitBTN = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         displayTA = new javax.swing.JTextArea();
+        clearBTN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,14 +55,39 @@ public class StackGUI extends javax.swing.JFrame {
         });
 
         numberBTN.setText("Number of the Wagons");
+        numberBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberBTNActionPerformed(evt);
+            }
+        });
 
         removeallBTN.setText("Remove all Wagons ");
+        removeallBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeallBTNActionPerformed(evt);
+            }
+        });
 
         removeBTN.setText("Remove Wagon");
+        removeBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeBTNActionPerformed(evt);
+            }
+        });
 
         firstBTN.setText("First Wagon");
+        firstBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstBTNActionPerformed(evt);
+            }
+        });
 
         listBTN.setText("List Products");
+        listBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listBTNActionPerformed(evt);
+            }
+        });
 
         exitBTN.setText("Exit");
         exitBTN.addActionListener(new java.awt.event.ActionListener() {
@@ -70,9 +96,17 @@ public class StackGUI extends javax.swing.JFrame {
             }
         });
 
+        displayTA.setEditable(false);
         displayTA.setColumns(20);
         displayTA.setRows(5);
         jScrollPane1.setViewportView(displayTA);
+
+        clearBTN.setText("Clear");
+        clearBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearBTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,7 +134,9 @@ public class StackGUI extends javax.swing.JFrame {
                                 .addComponent(addBTN)
                                 .addComponent(trainProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(numberBTN)
-                                .addComponent(removeallBTN))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(clearBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(removeallBTN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGap(78, 78, 78)))))
         );
         layout.setVerticalGroup(
@@ -123,7 +159,9 @@ public class StackGUI extends javax.swing.JFrame {
                     .addComponent(removeallBTN)
                     .addComponent(firstBTN))
                 .addGap(18, 18, 18)
-                .addComponent(listBTN)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(listBTN)
+                    .addComponent(clearBTN))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
@@ -145,8 +183,44 @@ public class StackGUI extends javax.swing.JFrame {
         
         stack.pushStack(trainProductTF.getText());
         
-        
     }//GEN-LAST:event_addBTNActionPerformed
+
+    private void numberBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberBTNActionPerformed
+        
+        stack.sizeStack ();
+        
+    }//GEN-LAST:event_numberBTNActionPerformed
+
+    private void removeBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBTNActionPerformed
+        
+        stack.emptyStack();
+        
+    }//GEN-LAST:event_removeBTNActionPerformed
+
+    private void removeallBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeallBTNActionPerformed
+        
+        stack.removeWagons ();
+        
+    }//GEN-LAST:event_removeallBTNActionPerformed
+
+    private void firstBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstBTNActionPerformed
+        
+        stack.peek ();
+        
+    }//GEN-LAST:event_firstBTNActionPerformed
+
+    private void listBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listBTNActionPerformed
+        
+        stack.displayStack ();
+                
+    }//GEN-LAST:event_listBTNActionPerformed
+
+    private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBTNActionPerformed
+        
+        trainProductTF.setText(null);
+        displayTA.setText(null);
+        
+    }//GEN-LAST:event_clearBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +259,7 @@ public class StackGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBTN;
+    private javax.swing.JButton clearBTN;
     public static javax.swing.JTextArea displayTA;
     private javax.swing.JButton exitBTN;
     private javax.swing.JButton firstBTN;

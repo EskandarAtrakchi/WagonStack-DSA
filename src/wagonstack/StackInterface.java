@@ -7,12 +7,11 @@ package wagonstack;
 public interface StackInterface {
     
     public void pushStack (Object newItem);
-    public Object pop ();
     public Object peek ();
-    public boolean emptyStack();
+    public Object emptyStack();
     
     public int sizeStack ();
-    public String displayStack();
-    public void checkStack ();
+    public void displayStack();
+    public void removeWagons ();
     
 }
