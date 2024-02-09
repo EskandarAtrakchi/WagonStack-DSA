@@ -1,5 +1,3 @@
-
-```markdown
 # StackGUI Class
 
 The `StackGUI` class represents the graphical user interface (GUI) for the wagon stack program. It includes various buttons and text fields to interact with the underlying `MyStack` class.
