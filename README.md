@@ -2,6 +2,10 @@
 
 The `StackGUI` class represents the graphical user interface (GUI) for the wagon stack program. It includes various buttons and text fields to interact with the underlying `MyStack` class.
 
+## Data Structure and Algorithem followed
+
+A stack is a Last In, First Out (LIFO) data structure, where the last element added is the first one to be removed. The wagons are pushed onto the stack and popped off from the top of the stack.
+
 ## Exit Button
 
 ```java
