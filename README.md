@@ -83,4 +83,3 @@ private void clearBTNActionPerformed(java.awt.event.ActionEvent evt) {
 ```
 
 This method is executed when the "Clear" button (`clearBTN`) is clicked. It clears the text in the `trainProductTF` and `displayTA`, presumably for user input and output.
-```
